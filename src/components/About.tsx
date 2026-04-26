@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import image from "../../public/images/codecamp.png";
 import { ScrollAnimation, StaggerContainer, Item } from "./AnimationWrappers";
 
 export function About() {

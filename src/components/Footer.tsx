@@ -61,14 +61,7 @@ export function Footer() {
               >
                 <FaLinkedin size={20} />
               </Link>
-              <Link
-                href={siteConfig.links.twitter}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-primary transition-colors"
-              >
-                <FaTwitter size={20} />
-              </Link>
+             
               <Link
                 href={`mailto:${siteConfig.email}`}
                 className="text-gray-400 hover:text-primary transition-colors"

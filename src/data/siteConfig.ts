@@ -1,14 +1,14 @@
 export const siteConfig = {
-  name: "John Developer",
+  name: "Ram Dularey Yadav",
   title: "Full-Stack Developer & Creative Problem Solver",
   description:
     "Building beautiful, performant web experiences with modern technologies. Specialist in React, Next.js, and full-stack JavaScript.",
-  author: "John Developer",
-  email: "hello@johndeveloper.com",
+  author: "Ram Dularey",
+  email: "ramdulareyyadav2002@gmail.com",
   links: {
     twitter: "https://twitter.com",
-    github: "https://github.com",
-    linkedin: "https://linkedin.com",
+    github: "https://github.com/Ramdularey1",
+    linkedin: "https://www.linkedin.com/in/ram-dularey-yadav-256945224/",
     discord: "https://discord.com",
   },
 };

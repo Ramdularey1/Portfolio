@@ -14,7 +14,7 @@ export function Navbar() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link href="/" className="font-bold text-xl gradient-text">
-            JD.
+            RD.
           </Link>
 
           {/* Desktop Menu */}

@@ -11,76 +11,53 @@ export interface Project {
 }
 
 export const projects: Project[] = [
-  {
-    id: "1",
-    title: "AI-Powered Analytics Dashboard",
-    description: "Real-time analytics platform with AI-powered insights and predictions",
-    longDescription:
-      "A comprehensive analytics dashboard built with Next.js and TypeScript that provides real-time data visualization, AI-powered insights, and predictive analytics. Features interactive charts, custom reports, and seamless data export capabilities.",
-    image: "/images/project-1.png",
-    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Chart.js", "AI/ML"],
-    github: "https://github.com",
-    live: "https://example.com",
-    featured: true,
-  },
-  {
-    id: "2",
-    title: "E-Commerce Platform",
-    description: "Full-stack e-commerce solution with payment integration and inventory management",
-    longDescription:
-      "A production-ready e-commerce platform featuring a modern storefront, shopping cart, checkout flow, payment processing with Stripe, and comprehensive admin dashboard for inventory and order management.",
-    image: "/images/project-2.png",
-    tags: ["Next.js", "PostgreSQL", "Stripe", "React", "Node.js"],
-    github: "https://github.com",
-    live: "https://example.com",
-    featured: true,
-  },
-  {
-    id: "3",
-    title: "SaaS Collaboration Tool",
-    description: "Team collaboration platform with real-time updates and file sharing",
-    longDescription:
-      "A modern SaaS application enabling teams to collaborate in real-time with features including live document editing, video conferencing, file sharing, and project management capabilities.",
-    image: "/images/project-3.png",
-    tags: ["React", "WebSocket", "Node.js", "MongoDB", "Tailwind CSS"],
-    github: "https://github.com",
-    live: "https://example.com",
-    featured: true,
-  },
-  {
-    id: "4",
-    title: "Mobile Fitness App",
-    description: "Cross-platform fitness tracking app with workout plans and progress analytics",
-    longDescription:
-      "A comprehensive fitness application available on iOS and Android with features for workout tracking, progress analytics, personalized fitness plans, and social sharing capabilities.",
-    image: "/images/project-4.png",
-    tags: ["React Native", "Firebase", "TypeScript", "Redux"],
-    github: "https://github.com",
-    live: "https://example.com",
-    featured: false,
-  },
-  {
-    id: "5",
-    title: "Design System & Component Library",
-    description: "Comprehensive UI component library used across multiple products",
-    longDescription:
-      "A fully-featured design system built with React and TypeScript, featuring 50+ customizable components, comprehensive documentation, and Storybook integration for seamless developer experience.",
-    image: "/images/project-5.png",
-    tags: ["React", "TypeScript", "Storybook", "Tailwind CSS"],
-    github: "https://github.com",
-    live: "https://example.com",
-    featured: false,
-  },
-  {
-    id: "6",
-    title: "Content Management System",
-    description: "Headless CMS with REST API and visual content builder",
-    longDescription:
-      "A flexible headless CMS platform with a visual content builder, REST/GraphQL APIs, media management, and multi-language support for content creation and distribution.",
-    image: "/images/project-6.png",
-    tags: ["Node.js", "Express", "MongoDB", "React", "GraphQL"],
-    github: "https://github.com",
-    live: "https://example.com",
-    featured: false,
-  },
+{
+  id: "1",
+  title: "Code Camp",
+  description: "LeetCode-like coding platform with real-time code execution",
+  longDescription:
+    "A full-stack coding platform where users can solve problems, write code in an integrated editor, and get instant results using Judge0 API. Includes authentication, test case execution, and dynamic problem rendering.",
+  image:"/images/codecamp.png",
+  tags: ["React", "Node.js", "Express.js", "MongoDB", "Redux", "Judge0 API"],
+  github: "https://github.com/Ramdularey1/codecamp",
+  live: "https://codecamp-neon.vercel.app/",
+  featured: true,
+},
+{
+  id: "2",
+  title: "TubeForge",
+  description: "YouTube content management and editing platform",
+  longDescription:
+    "A full-stack application that allows users to manage and edit YouTube video content. Features include video data fetching, editing functionality, API integration, and secure authentication with smooth UI.",
+  image: "/images/tubeforge.png",
+  tags: ["React", "Node.js", "Express.js", "MongoDB", "JWT", "REST API"],
+  github: "https://github.com/Ramdularey1/TubeForge",
+  live: "https://tube-forge-iota.vercel.app/",
+  featured: true,
+},
+{
+  id: "4",
+  title: "Swiggy Clone",
+  description: "Food ordering UI with live API data and state management",
+  longDescription:
+    "A frontend-focused application that fetches real-time restaurant data from Swiggy API, displays it using Redux store, and includes features like routing, shimmer loading effects, and responsive UI design.",
+  image: "/images/foodhub.png",
+  tags: ["React", "Redux", "Tailwind CSS", "API Integration"],
+  github: "https://github.com/Ramdularey1/food-hub",
+  live: "https://food-hub-theta.vercel.app/",
+  featured: false,
+},
+// {
+//   id: "3",
+//   title: "E-Commerce Website",
+//   description: "Full-stack e-commerce platform with authentication and seamless shopping experience",
+//   longDescription:
+//     "A complete e-commerce web application built using React, Node.js, Express, and MongoDB. It features user authentication with JWT, product browsing, add-to-cart functionality, and secure checkout flow. The application uses Redux for state management and integrates REST APIs for handling products, users, and orders. Designed with a responsive UI to ensure a smooth shopping experience across all devices.",
+//   image: "/images/ecommerce.png",
+//   tags: ["React", "Node.js", "Express", "MongoDB", "Redux", "JWT"],
+//   github: "https://github.com/Ramdularey1/e-commerce-fullstack-",
+//   live: "YOUR_LIVE_LINK",
+//   featured: true,
+// },
+
 ];
