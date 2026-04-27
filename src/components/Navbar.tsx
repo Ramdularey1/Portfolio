@@ -52,14 +52,6 @@ export function Navbar() {
           <div className="md:hidden pb-4 space-y-2 animate-fade-in">
             {navLinks.map((link) => (
               <Link
-            <a
-              href="/Ram_resume.pdf"
-              download
-              className="inline-flex items-center gap-2 px-4 py-2 bg-primary hover:bg-opacity-90 rounded-lg text-sm font-semibold transition-all duration-300 w-full justify-center"
-            >
-              <FaDownload size={14} />
-              Download Resume
-            </a>
                 key={link.name}
                 href={link.href}
                 className="block text-sm font-medium hover:text-primary transition-colors duration-200 py-2"
@@ -68,6 +60,14 @@ export function Navbar() {
                 {link.name}
               </Link>
             ))}
+            <a
+              href="/Ram_resume.pdf"
+              download
+              className="inline-flex items-center gap-2 px-4 py-2 bg-primary hover:bg-opacity-90 rounded-lg text-sm font-semibold transition-all duration-300 w-full justify-center"
+            >
+              <FaDownload size={14} />
+              Download Resume
+            </a>
           </div>
         )}
       </div>
