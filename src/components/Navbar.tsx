@@ -30,7 +30,8 @@ export function Navbar() {
             ))}
             <a
               href="/Ram_resume.pdf"
-              download
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-4 py-2 bg-primary hover:bg-opacity-90 rounded-lg text-sm font-semibold transition-all duration-300"
             >
               <FaDownload size={14} />
@@ -61,7 +62,8 @@ export function Navbar() {
               </Link>
             ))}
             <a
-              href="/Ram_resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"am_resume.pdf"
               download
               className="inline-flex items-center gap-2 px-4 py-2 bg-primary hover:bg-opacity-90 rounded-lg text-sm font-semibold transition-all duration-300 w-full justify-center"
             >

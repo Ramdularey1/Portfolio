@@ -75,7 +75,8 @@ export function Hero() {
           </Link>
           <a
             href="/Ram_resume.pdf"
-            download
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-8 py-3 bg-secondary hover:bg-opacity-90 rounded-lg font-semibold transition-all duration-300 hover:scale-105"
           >
             <FaDownload size={16} />
