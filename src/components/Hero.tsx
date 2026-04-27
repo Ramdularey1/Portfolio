@@ -4,7 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { siteConfig } from "@/data/siteConfig";
-import { FaArrowRight } from "react-icons/fa";
+import { FaArrowRight, FaDownload } from "react-icons/fa";
 
 export function Hero() {
   const containerVariants = {
@@ -73,6 +73,14 @@ export function Hero() {
             View My Work
             <FaArrowRight size={16} />
           </Link>
+          <a
+            href="/Ram_resume.pdf"
+            download
+            className="inline-flex items-center gap-2 px-8 py-3 bg-secondary hover:bg-opacity-90 rounded-lg font-semibold transition-all duration-300 hover:scale-105"
+          >
+            <FaDownload size={16} />
+            Download Resume
+          </a>
           <Link
             href="#contact"
             className="inline-flex items-center gap-2 px-8 py-3 glass hover:bg-white/20 rounded-lg font-semibold transition-all duration-300"
