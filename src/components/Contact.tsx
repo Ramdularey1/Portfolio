@@ -51,8 +51,8 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="bg-darker py-24">
-      <div className="section-shell">
+    <section id="contact" className="section-band bg-darker py-24">
+      <div className="section-shell relative z-10">
         <ScrollAnimation>
           <div className="mb-12 max-w-3xl">
             <p className="section-eyebrow mb-3">Contact</p>
@@ -66,14 +66,14 @@ export function Contact() {
 
         <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr]">
           <ScrollAnimation>
-            <div className="professional-card h-full rounded-lg p-6">
+            <div className="professional-card h-full rounded-2xl p-6">
               <h3 className="text-xl font-black text-white">Contact details</h3>
               <div className="mt-6 space-y-4">
                 <Link
                   href={`mailto:${siteConfig.email}`}
-                  className="flex items-center gap-4 rounded-lg border border-slate-800 bg-slate-950/55 p-4 transition-colors hover:border-primary/50"
+                  className="flex items-center gap-4 rounded-2xl border border-slate-800 bg-slate-950/55 p-4 transition-colors hover:border-primary/50"
                 >
-                  <span className="grid h-11 w-11 place-items-center rounded-lg bg-primary/12 text-primary">
+                  <span className="grid h-11 w-11 place-items-center rounded-xl bg-primary/12 text-primary">
                     <FaEnvelope />
                   </span>
                   <span>
@@ -82,8 +82,8 @@ export function Contact() {
                   </span>
                 </Link>
 
-                <div className="flex items-center gap-4 rounded-lg border border-slate-800 bg-slate-950/55 p-4">
-                  <span className="grid h-11 w-11 place-items-center rounded-lg bg-secondary/12 text-secondary">
+                <div className="flex items-center gap-4 rounded-2xl border border-slate-800 bg-slate-950/55 p-4">
+                  <span className="grid h-11 w-11 place-items-center rounded-xl bg-secondary/12 text-secondary">
                     <FaPhone />
                   </span>
                   <span>
@@ -100,7 +100,7 @@ export function Contact() {
                     href={siteConfig.links.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="grid h-11 w-11 place-items-center rounded-lg border border-slate-700 text-slate-300 transition-colors hover:border-primary hover:text-primary"
+                    className="grid h-11 w-11 place-items-center rounded-xl border border-slate-700 text-slate-300 transition-colors hover:border-primary hover:text-primary"
                     aria-label="GitHub profile"
                   >
                     <FaGithub />
@@ -109,7 +109,7 @@ export function Contact() {
                     href={siteConfig.links.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="grid h-11 w-11 place-items-center rounded-lg border border-slate-700 text-slate-300 transition-colors hover:border-primary hover:text-primary"
+                    className="grid h-11 w-11 place-items-center rounded-xl border border-slate-700 text-slate-300 transition-colors hover:border-primary hover:text-primary"
                     aria-label="LinkedIn profile"
                   >
                     <FaLinkedin />
@@ -126,7 +126,7 @@ export function Contact() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="professional-card rounded-lg p-6 md:p-8"
+              className="professional-card rounded-2xl p-6 md:p-8"
             >
               <div className="grid gap-4 sm:grid-cols-2">
                 <div>
@@ -140,7 +140,7 @@ export function Contact() {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full rounded-lg border border-slate-700 bg-slate-950/70 px-4 py-3 text-white placeholder-slate-500 transition-colors focus:border-primary focus:outline-none"
+                    className="w-full rounded-xl border border-slate-700 bg-slate-950/70 px-4 py-3 text-white placeholder-slate-500 transition-colors focus:border-primary focus:outline-none"
                     placeholder="Your name"
                   />
                 </div>
@@ -156,7 +156,7 @@ export function Contact() {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full rounded-lg border border-slate-700 bg-slate-950/70 px-4 py-3 text-white placeholder-slate-500 transition-colors focus:border-primary focus:outline-none"
+                    className="w-full rounded-xl border border-slate-700 bg-slate-950/70 px-4 py-3 text-white placeholder-slate-500 transition-colors focus:border-primary focus:outline-none"
                     placeholder="you@example.com"
                   />
                 </div>
@@ -173,13 +173,13 @@ export function Contact() {
                   onChange={handleChange}
                   required
                   rows={6}
-                  className="w-full resize-none rounded-lg border border-slate-700 bg-slate-950/70 px-4 py-3 text-white placeholder-slate-500 transition-colors focus:border-primary focus:outline-none"
+                  className="w-full resize-none rounded-xl border border-slate-700 bg-slate-950/70 px-4 py-3 text-white placeholder-slate-500 transition-colors focus:border-primary focus:outline-none"
                   placeholder="Tell me about the role or project..."
                 />
               </div>
 
               {error && (
-                <div className="mt-4 rounded-lg border border-red-500/40 bg-red-500/10 p-3 text-sm text-red-300">
+                <div className="mt-4 rounded-xl border border-red-500/40 bg-red-500/10 p-3 text-sm text-red-300">
                   {error}
                 </div>
               )}
@@ -189,7 +189,7 @@ export function Contact() {
                 whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.98 }}
                 disabled={loading}
-                className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-6 py-3 font-bold text-slate-950 transition-all duration-300 hover:bg-sky-300 disabled:cursor-not-allowed disabled:opacity-50"
+                className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-primary to-secondary px-6 py-3 font-black text-slate-950 shadow-[0_18px_55px_rgba(56,189,248,0.18)] transition-all duration-300 hover:translate-y-[-2px] disabled:cursor-not-allowed disabled:opacity-50"
               >
                 <FaPaperPlane size={14} />
                 {loading ? "Sending..." : submitted ? "Message Sent" : "Send Message"}

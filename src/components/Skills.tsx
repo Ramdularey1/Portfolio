@@ -7,8 +7,8 @@ import { motion } from "framer-motion";
 
 export function Skills() {
   return (
-    <section id="skills" className="border-b border-slate-900 bg-dark py-24">
-      <div className="section-shell">
+    <section id="skills" className="section-band border-b border-slate-900 bg-dark py-24">
+      <div className="section-shell relative z-10">
         <ScrollAnimation>
           <div className="mb-12 flex flex-col justify-between gap-5 md:flex-row md:items-end">
             <div>
@@ -28,20 +28,25 @@ export function Skills() {
               <motion.div
                 whileHover={{ y: -4 }}
                 transition={{ duration: 0.2 }}
-                className="professional-card h-full rounded-lg p-5"
+                className="professional-card h-full rounded-2xl p-5"
               >
-                <h3 className="mb-5 text-base font-bold text-white">{category.category}</h3>
+                <div className="mb-5 flex items-center justify-between gap-3">
+                  <h3 className="text-base font-black text-white">{category.category}</h3>
+                  <span className="rounded-full bg-primary/10 px-2.5 py-1 text-xs font-bold text-primary">
+                    {category.skills.length}
+                  </span>
+                </div>
                 <StaggerContainer staggerDelay={0.04}>
                   {category.skills.map((skill, skillIndex) => (
                     <Item key={skill.name} index={skillIndex}>
                       <div className="mb-4 last:mb-0">
                         <div className="mb-2 flex items-center justify-between gap-3">
                           <span className="text-sm font-medium text-slate-200">{skill.name}</span>
-                          <span className="rounded-md bg-slate-900 px-2 py-1 text-xs text-slate-400">
+                          <span className="rounded-lg bg-slate-900 px-2 py-1 text-xs text-slate-400">
                             {skill.level}/5
                           </span>
                         </div>
-                        <div className="h-2 overflow-hidden rounded-full bg-slate-800">
+                        <div className="h-1.5 overflow-hidden rounded-full bg-slate-800">
                           <motion.div
                             initial={{ width: 0 }}
                             whileInView={{ width: `${(skill.level / 5) * 100}%` }}

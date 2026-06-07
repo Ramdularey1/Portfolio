@@ -7,8 +7,8 @@ import { motion } from "framer-motion";
 
 export function Experience() {
   return (
-    <section id="experience" className="border-b border-slate-900 bg-dark py-24">
-      <div className="section-shell">
+    <section id="experience" className="section-band border-b border-slate-900 bg-dark py-24">
+      <div className="section-shell relative z-10">
         <ScrollAnimation>
           <div className="mb-12 max-w-3xl">
             <p className="section-eyebrow mb-3">Experience</p>
@@ -28,14 +28,14 @@ export function Experience() {
                 <motion.article
                   whileHover={{ y: -4 }}
                   transition={{ duration: 0.2 }}
-                  className="professional-card rounded-lg p-6 md:p-8"
+                  className="professional-card rounded-2xl p-6 md:p-8"
                 >
                   <div className="flex flex-col justify-between gap-4 border-b border-slate-800 pb-6 md:flex-row md:items-start">
                     <div>
                       <p className="text-sm font-semibold text-primary">{exp.company}</p>
                       <h3 className="mt-2 text-2xl font-black text-white">{exp.position}</h3>
                     </div>
-                    <span className="w-fit rounded-lg border border-slate-700 px-3 py-2 text-sm font-semibold text-slate-300">
+                    <span className="w-fit rounded-xl border border-slate-700 px-3 py-2 text-sm font-semibold text-slate-300">
                       {exp.duration}
                     </span>
                   </div>
@@ -48,9 +48,9 @@ export function Experience() {
                     {exp.highlights.map((highlight) => (
                       <div
                         key={highlight}
-                        className="rounded-lg border border-slate-800 bg-slate-950/55 p-4 text-sm leading-6 text-slate-300"
+                        className="rounded-2xl border border-slate-800 bg-slate-950/55 p-4 text-sm leading-6 text-slate-300 transition-colors hover:border-primary/30"
                       >
-                        <span className="mr-2 text-primary">-</span>
+                        <span className="mr-2 text-primary">•</span>
                         {highlight}
                       </div>
                     ))}
