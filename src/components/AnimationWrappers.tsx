@@ -1,7 +1,7 @@
 "use client";
 
 import React, { ReactNode } from "react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
 interface ScrollAnimationProps {
   children: ReactNode;
@@ -10,7 +10,7 @@ interface ScrollAnimationProps {
 }
 
 export function ScrollAnimation({ children, delay = 0, duration = 0.6 }: ScrollAnimationProps) {
-  const variants = {
+  const variants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
@@ -27,7 +27,7 @@ export function ScrollAnimation({ children, delay = 0, duration = 0.6 }: ScrollA
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}
-      variants={variants as any}
+      variants={variants}
     >
       {children}
     </motion.div>
@@ -40,7 +40,7 @@ interface StaggerContainerProps {
 }
 
 export function StaggerContainer({ children, staggerDelay = 0.1 }: StaggerContainerProps) {
-  const variants = {
+  const variants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -55,7 +55,7 @@ export function StaggerContainer({ children, staggerDelay = 0.1 }: StaggerContai
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
-      variants={variants as any}
+      variants={variants}
     >
       {children}
     </motion.div>
@@ -68,7 +68,7 @@ interface ItemProps {
 }
 
 export function Item({ children, index = 0 }: ItemProps) {
-  const variants = {
+  const variants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
@@ -79,5 +79,5 @@ export function Item({ children, index = 0 }: ItemProps) {
     },
   };
 
-  return <motion.div variants={variants as any}>{children}</motion.div>;
+  return <motion.div variants={variants}>{children}</motion.div>;
 }

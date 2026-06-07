@@ -2,74 +2,67 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import image from "../../public/images/codecamp.png";
 import { ScrollAnimation, StaggerContainer, Item } from "./AnimationWrappers";
+
+const highlights = [
+  "Reusable React interfaces with responsive layouts",
+  "REST APIs, authentication, and database-backed features",
+  "Debugging across frontend, backend, CORS, and deployment issues",
+  "Clean project structure with practical delivery habits",
+];
+
+const stats = [
+  ["3+", "Featured projects"],
+  ["Full-stack", "Primary focus"],
+  ["MERN", "Core stack"],
+];
 
 export function About() {
   return (
-    <section id="about" className="py-24 px-4 bg-gradient-to-b from-dark to-darker">
-      <div className="max-w-4xl mx-auto">
-        <ScrollAnimation>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            About <span className="gradient-text">Me</span>
-          </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary rounded-full mb-12"></div>
-        </ScrollAnimation>
-
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Left side - Image */}
+    <section id="about" className="border-b border-slate-900 bg-darker py-24">
+      <div className="section-shell">
+        <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <ScrollAnimation>
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3 }}
-              className="glass rounded-lg overflow-hidden h-96 relative group"
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-primary to-secondary opacity-20"></div>
-              <div className="w-full h-full bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="text-6xl mb-2">👨‍💻</div>
-                  <p className="text-gray-400">Profile Image</p>
+            <p className="section-eyebrow mb-3">About</p>
+            <h2 className="section-title">A developer who cares about both product and code quality.</h2>
+            <p className="section-copy mt-5">
+              I build full-stack web applications with a strong focus on usable interfaces,
+              dependable backend logic, and clear implementation. My work spans coding
+              platforms, content tools, API integrations, authentication, and responsive
+              user experiences.
+            </p>
+
+            <div className="mt-8 grid gap-3 sm:grid-cols-3">
+              {stats.map(([value, label]) => (
+                <div key={label} className="rounded-lg border border-slate-800 bg-slate-950/60 p-4">
+                  <p className="text-xl font-black text-white">{value}</p>
+                  <p className="mt-1 text-xs text-slate-400">{label}</p>
                 </div>
-              </div>
-            </motion.div>
+              ))}
+            </div>
           </ScrollAnimation>
 
-          {/* Right side - Content */}
-          <StaggerContainer staggerDelay={0.15}>
-            <Item index={0}>
-              <p className="text-gray-400 text-lg leading-relaxed mb-6">
-                I'm a passionate full-stack developer with a knack for building beautiful and scalable web applications.
-                With over 5 years of experience in the tech industry, I've had the opportunity to work with diverse teams
-                and technologies.
+          <StaggerContainer staggerDelay={0.12}>
+            <div className="professional-card rounded-lg p-6">
+              <p className="mb-5 text-sm font-semibold uppercase tracking-[0.14em] text-primary">
+                How I Work
               </p>
-            </Item>
-
-            <Item index={1}>
-              <p className="text-gray-400 text-lg leading-relaxed mb-6">
-                My journey started with a curiosity about how things work on the web. Over time, I've developed a strong
-                foundation in modern JavaScript frameworks, backend technologies, and best practices for building
-                performant applications.
-              </p>
-            </Item>
-
-            <Item index={2}>
-              <p className="text-gray-400 text-lg leading-relaxed mb-6">
-                When I'm not coding, I enjoy contributing to open-source projects, writing technical articles, and
-                mentoring junior developers. I'm always eager to learn new technologies and tackle challenging problems.
-              </p>
-            </Item>
-
-            <Item index={3}>
-              <div className="pt-4">
-                <h3 className="font-semibold mb-3 text-white">What I'm passionate about:</h3>
-                <ul className="space-y-2 text-gray-400">
-                  <li>✓ Building performant, user-friendly web applications</li>
-                  <li>✓ Clean code and best development practices</li>
-                  <li>✓ Mentoring and collaborating with teams</li>
-                  <li>✓ Open-source contributions and community engagement</li>
-                </ul>
+              <div className="space-y-4">
+                {highlights.map((item, index) => (
+                  <Item key={item} index={index}>
+                    <motion.div
+                      whileHover={{ x: 4 }}
+                      className="flex gap-4 rounded-lg border border-slate-800 bg-slate-950/55 p-4"
+                    >
+                      <span className="mt-1 grid h-6 w-6 shrink-0 place-items-center rounded-md bg-primary/15 text-xs font-black text-primary">
+                        {index + 1}
+                      </span>
+                      <p className="text-sm leading-6 text-slate-300">{item}</p>
+                    </motion.div>
+                  </Item>
+                ))}
               </div>
-            </Item>
+            </div>
           </StaggerContainer>
         </div>
       </div>

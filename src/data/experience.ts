@@ -15,7 +15,7 @@ export const experienceData: Experience[] = [
     company: "RevSpire Technologies.",
     position: "Full Stack Developer Intern",
     duration: "2024 - 2025",
-    startDate: "2022-01",
+    startDate: "2024-01",
     description:
       "Built and contributed to full-stack web applications using modern technologies, focusing on scalable architecture, seamless API integration, and high-performance user experiences.",
     highlights: [

@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://johndeveloper.com",
+    url: "https://ramdularey.dev",
     title: `${siteConfig.name} - ${siteConfig.title}`,
     description: siteConfig.description,
   },

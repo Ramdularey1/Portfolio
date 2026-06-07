@@ -8,11 +8,11 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: "#FF006E",
-        secondary: "#00D9FF",
-        accent: "#FB5607",
-        dark: "#0A0E27",
-        darker: "#050812",
+        primary: "#38BDF8",
+        secondary: "#A3E635",
+        accent: "#F59E0B",
+        dark: "#0B1120",
+        darker: "#020617",
       },
       animation: {
         "fade-in": "fadeIn 0.6s ease-in-out",

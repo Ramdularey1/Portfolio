@@ -1,6 +1,22 @@
 import nodemailer from "nodemailer";
 import { NextRequest, NextResponse } from "next/server";
 
+const directEmailConfig = {
+  service: "gmail",
+  user: "",
+  password: "",
+  recipient: "ramdulareyyadav2002@gmail.com",
+};
+
+function escapeHtml(value: string) {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
 export async function POST(request: NextRequest) {
   try {
     const { name, email, message } = await request.json();
@@ -13,39 +29,62 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    const emailUser = directEmailConfig.user || process.env.EMAIL_USER;
+    const emailPassword =
+      directEmailConfig.password || process.env.EMAIL_PASSWORD;
+    const emailRecipient =
+      directEmailConfig.recipient || process.env.EMAIL_RECIPIENT || emailUser;
+    const emailService =
+      directEmailConfig.service || process.env.EMAIL_SERVICE || "gmail";
+
+    if (!emailUser || !emailPassword || !emailRecipient) {
+      return NextResponse.json(
+        {
+          error:
+            "Email is not configured yet. Add your sender Gmail and app password in src/app/api/send-email/route.ts.",
+        },
+        { status: 503 }
+      );
+    }
+
+    const safeName = escapeHtml(name);
+    const safeEmail = escapeHtml(email);
+    const safeMessage = escapeHtml(message).replace(/\n/g, "<br>");
+
     // Create transporter
     const transporter = nodemailer.createTransport({
-      service: process.env.EMAIL_SERVICE || "gmail",
+      service: emailService,
       auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASSWORD,
+        user: emailUser,
+        pass: emailPassword,
       },
     });
 
     // Email to owner
     await transporter.sendMail({
-      from: process.env.EMAIL_USER,
-      to: process.env.EMAIL_RECIPIENT,
-      subject: `New Contact Form Submission from ${name}`,
+      from: `"${safeName} via Portfolio" <${emailUser}>`,
+      replyTo: email,
+      to: emailRecipient,
+      subject: `New Contact Form Submission from ${safeName}`,
       html: `
         <h2>New Message from Your Portfolio</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Name:</strong> ${safeName}</p>
+        <p><strong>Email:</strong> ${safeEmail}</p>
         <p><strong>Message:</strong></p>
-        <p>${message.replace(/\n/g, "<br>")}</p>
+        <p>${safeMessage}</p>
       `,
     });
 
     // Confirmation email to visitor
     await transporter.sendMail({
-      from: process.env.EMAIL_USER,
+      from: `"Ram Dularey Yadav" <${emailUser}>`,
       to: email,
       subject: "We received your message",
       html: `
-        <h2>Thank you, ${name}!</h2>
-        <p>We received your message and will get back to you soon.</p>
+        <h2>Thank you, ${safeName}!</h2>
+        <p>I received your message and will get back to you soon.</p>
         <br>
-        <p>Best regards,<br>Portfolio Owner</p>
+        <p>Best regards,<br>Ram Dularey Yadav</p>
       `,
     });
 

@@ -1,8 +1,8 @@
 export const siteConfig = {
   name: "Ram Dularey Yadav",
-  title: "Full-Stack Developer & Creative Problem Solver",
+  title: "Full-Stack Developer",
   description:
-    "Building beautiful, performant web experiences with modern technologies. Specialist in React, Next.js, and full-stack JavaScript.",
+    "Full-stack developer building reliable React, Next.js, Node.js, and MongoDB applications with clean interfaces and production-minded architecture.",
   author: "Ram Dularey",
   email: "ramdulareyyadav2002@gmail.com",
   links: {
