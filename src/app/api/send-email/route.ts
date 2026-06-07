@@ -3,8 +3,8 @@ import { NextRequest, NextResponse } from "next/server";
 
 const directEmailConfig = {
   service: "gmail",
-  user: "",
-  password: "",
+  user: "ramdulareyyadav2002@gmail.com",
+  password: "ksem yoru nhml qrqa",
   recipient: "ramdulareyyadav2002@gmail.com",
 };
 

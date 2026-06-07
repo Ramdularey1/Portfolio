@@ -1,11 +1,11 @@
 "use client";
 
 import React, { useState } from "react";
-import { ScrollAnimation, StaggerContainer, Item } from "./AnimationWrappers";
-import { motion } from "framer-motion";
-import { siteConfig } from "@/data/siteConfig";
-import { FaEnvelope, FaPhone, FaGithub, FaLinkedin } from "react-icons/fa";
 import Link from "next/link";
+import { motion } from "framer-motion";
+import { FaEnvelope, FaGithub, FaLinkedin, FaPaperPlane, FaPhone } from "react-icons/fa";
+import { ScrollAnimation } from "./AnimationWrappers";
+import { siteConfig } from "@/data/siteConfig";
 
 export function Contact() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
@@ -18,7 +18,7 @@ export function Contact() {
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-    setError(null); // Clear error when user starts typing
+    setError(null);
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -36,7 +36,8 @@ export function Contact() {
       });
 
       if (!response.ok) {
-        throw new Error("Failed to send email");
+        const data = await response.json().catch(() => null);
+        throw new Error(data?.error || "Failed to send email");
       }
 
       setSubmitted(true);
@@ -50,88 +51,74 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 px-4 bg-gradient-to-b from-dark to-darker">
-      <div className="max-w-4xl mx-auto">
+    <section id="contact" className="bg-darker py-24">
+      <div className="section-shell">
         <ScrollAnimation>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center">
-            Get In <span className="gradient-text">Touch</span>
-          </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary rounded-full mb-12 mx-auto"></div>
-          <p className="text-gray-400 text-center text-lg mb-12">
-            I'd love to hear from you! Whether you have a project, question, or just want to chat, feel free to reach out.
-          </p>
+          <div className="mb-12 max-w-3xl">
+            <p className="section-eyebrow mb-3">Contact</p>
+            <h2 className="section-title">Let&apos;s build something useful.</h2>
+            <p className="section-copy mt-5">
+              Reach out for full-stack roles, internship opportunities, freelance builds,
+              or collaboration on React and Node.js products.
+            </p>
+          </div>
         </ScrollAnimation>
 
-        <div className="grid md:grid-cols-2 gap-12">
-          {/* Contact Info */}
-          <StaggerContainer staggerDelay={0.15}>
-            <Item index={0}>
-              <ScrollAnimation>
-                <h3 className="text-2xl font-bold mb-6 text-white">Contact Information</h3>
-              </ScrollAnimation>
-            </Item>
+        <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr]">
+          <ScrollAnimation>
+            <div className="professional-card h-full rounded-lg p-6">
+              <h3 className="text-xl font-black text-white">Contact details</h3>
+              <div className="mt-6 space-y-4">
+                <Link
+                  href={`mailto:${siteConfig.email}`}
+                  className="flex items-center gap-4 rounded-lg border border-slate-800 bg-slate-950/55 p-4 transition-colors hover:border-primary/50"
+                >
+                  <span className="grid h-11 w-11 place-items-center rounded-lg bg-primary/12 text-primary">
+                    <FaEnvelope />
+                  </span>
+                  <span>
+                    <span className="block text-xs text-slate-400">Email</span>
+                    <span className="break-all text-sm font-semibold text-white">{siteConfig.email}</span>
+                  </span>
+                </Link>
 
-            <Item index={1}>
-              <motion.div whileHover={{ x: 5 }} className="glass rounded-lg p-6 mb-6">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center">
-                    <FaEnvelope className="text-primary" size={24} />
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-400">Email</p>
-                    <Link
-                      href={`mailto:${siteConfig.email}`}
-                      className="font-semibold text-white hover:text-primary transition-colors"
-                    >
-                      {siteConfig.email}
-                    </Link>
-                  </div>
+                <div className="flex items-center gap-4 rounded-lg border border-slate-800 bg-slate-950/55 p-4">
+                  <span className="grid h-11 w-11 place-items-center rounded-lg bg-secondary/12 text-secondary">
+                    <FaPhone />
+                  </span>
+                  <span>
+                    <span className="block text-xs text-slate-400">Phone</span>
+                    <span className="text-sm font-semibold text-white">+91 9519313830</span>
+                  </span>
                 </div>
-              </motion.div>
-            </Item>
+              </div>
 
-            <Item index={2}>
-              <motion.div whileHover={{ x: 5 }} className="glass rounded-lg p-6 mb-6">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-secondary/20 rounded-lg flex items-center justify-center">
-                    <FaPhone className="text-secondary" size={24} />
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-400">Phone</p>
-                    <p className="font-semibold text-white">+91 9519313830</p>
-                  </div>
-                </div>
-              </motion.div>
-            </Item>
-
-            <Item index={3}>
-              <ScrollAnimation>
-                <h3 className="text-lg font-bold mb-4 text-white">Follow Me</h3>
-                <div className="flex gap-4">
-                  <motion.div
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="w-12 h-12 glass rounded-lg flex items-center justify-center hover:bg-white/20 transition-colors cursor-pointer"
+              <div className="mt-8">
+                <p className="mb-3 text-sm font-semibold text-slate-300">Profiles</p>
+                <div className="flex gap-3">
+                  <Link
+                    href={siteConfig.links.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="grid h-11 w-11 place-items-center rounded-lg border border-slate-700 text-slate-300 transition-colors hover:border-primary hover:text-primary"
+                    aria-label="GitHub profile"
                   >
-                    <Link href={siteConfig.links.github} target="_blank" rel="noopener noreferrer">
-                      <FaGithub className="text-white" size={20} />
-                    </Link>
-                  </motion.div>
-                  <motion.div
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="w-12 h-12 glass rounded-lg flex items-center justify-center hover:bg-white/20 transition-colors cursor-pointer"
+                    <FaGithub />
+                  </Link>
+                  <Link
+                    href={siteConfig.links.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="grid h-11 w-11 place-items-center rounded-lg border border-slate-700 text-slate-300 transition-colors hover:border-primary hover:text-primary"
+                    aria-label="LinkedIn profile"
                   >
-                    <Link href={siteConfig.links.linkedin} target="_blank" rel="noopener noreferrer">
-                      <FaLinkedin className="text-white" size={20} />
-                    </Link>
-                  </motion.div>
+                    <FaLinkedin />
+                  </Link>
                 </div>
-              </ScrollAnimation>
-            </Item>
-          </StaggerContainer>
+              </div>
+            </div>
+          </ScrollAnimation>
 
-          {/* Contact Form */}
           <ScrollAnimation>
             <motion.form
               onSubmit={handleSubmit}
@@ -139,42 +126,44 @@ export function Contact() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="glass rounded-lg p-8 space-y-4"
+              className="professional-card rounded-lg p-6 md:p-8"
             >
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium mb-2">
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-primary transition-colors"
-                  placeholder="Your name"
-                />
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div>
+                  <label htmlFor="name" className="mb-2 block text-sm font-semibold text-slate-200">
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                    className="w-full rounded-lg border border-slate-700 bg-slate-950/70 px-4 py-3 text-white placeholder-slate-500 transition-colors focus:border-primary focus:outline-none"
+                    placeholder="Your name"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="email" className="mb-2 block text-sm font-semibold text-slate-200">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    className="w-full rounded-lg border border-slate-700 bg-slate-950/70 px-4 py-3 text-white placeholder-slate-500 transition-colors focus:border-primary focus:outline-none"
+                    placeholder="you@example.com"
+                  />
+                </div>
               </div>
 
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium mb-2">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-primary transition-colors"
-                  placeholder="your@email.com"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium mb-2">
+              <div className="mt-4">
+                <label htmlFor="message" className="mb-2 block text-sm font-semibold text-slate-200">
                   Message
                 </label>
                 <textarea
@@ -183,26 +172,27 @@ export function Contact() {
                   value={formData.message}
                   onChange={handleChange}
                   required
-                  rows={5}
-                  className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-primary transition-colors resize-none"
-                  placeholder="Your message here..."
-                ></textarea>
+                  rows={6}
+                  className="w-full resize-none rounded-lg border border-slate-700 bg-slate-950/70 px-4 py-3 text-white placeholder-slate-500 transition-colors focus:border-primary focus:outline-none"
+                  placeholder="Tell me about the role or project..."
+                />
               </div>
 
               {error && (
-                <div className="bg-red-500/10 border border-red-500/50 rounded-lg p-3 text-red-400 text-sm">
+                <div className="mt-4 rounded-lg border border-red-500/40 bg-red-500/10 p-3 text-sm text-red-300">
                   {error}
                 </div>
               )}
 
               <motion.button
                 type="submit"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.98 }}
                 disabled={loading}
-                className="w-full px-6 py-3 bg-primary hover:bg-opacity-90 rounded-lg font-semibold transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-6 py-3 font-bold text-slate-950 transition-all duration-300 hover:bg-sky-300 disabled:cursor-not-allowed disabled:opacity-50"
               >
-                {loading ? "Sending..." : submitted ? "Message Sent! ✓" : "Send Message"}
+                <FaPaperPlane size={14} />
+                {loading ? "Sending..." : submitted ? "Message Sent" : "Send Message"}
               </motion.button>
             </motion.form>
           </ScrollAnimation>
